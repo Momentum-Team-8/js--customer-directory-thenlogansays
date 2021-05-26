@@ -59,6 +59,14 @@ for (let customer of customers) {
     customerEmail.innerText = customer.email
     console.log(customerEmail)
     customerCard.appendChild(customerEmail)
+
+    const streetAddress = document.createElement('div')
+    let streetNumber = customer.location.street.number
+    let streetName = customer.location.street.name
+    let fullStreetName = streetNumber + ' ' + streetName
+    streetAddress.innerText = fullStreetName
+    customerCard.appendChild(streetAddress)
+
 }
 
 
