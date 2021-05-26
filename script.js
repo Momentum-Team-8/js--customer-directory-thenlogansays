@@ -15,6 +15,17 @@
 let customer = customers[0]
 
 const insertionPoint = document.getElementById('output')
+function nameToAbbr (stateName) {
+    const idx = usStates.findIndex(function (state) {
+      return state.name === stateName.toUpperCase()
+    })
+  
+    if (idx === -1) {
+      return null
+    }
+  
+    return usStates[idx].abbreviation
+}
 
 // const customerCard = document.createElement('div')
 
@@ -67,6 +78,12 @@ for (let customer of customers) {
     streetAddress.innerText = fullStreetName
     customerCard.appendChild(streetAddress)
 
+    const cityStateZip = document.createElement('div')
+    let city = customer.location.city
+    let state = nameToAbbr(customer.location.state)
+    let zip = customer.location.postcode
+    cityStateZip.innerHTML = city + ',' + ' ' + state + ' ' + zip
+    customerCard.appendChild(cityStateZip)
+    
+
 }
-
-
